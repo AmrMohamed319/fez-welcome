@@ -37,7 +37,7 @@
       letter-spacing: 15px;
       line-height: 0.9;
       text-transform: uppercase;
-      direction: ltr; /* نخليها LTR عشان الكلمة تطلع FEZ مش ZEF */
+      direction: ltr;
     }
 
     /* حركة + إضاءة تحت الحروف */
@@ -80,6 +80,7 @@
       font-weight: 300;
       text-transform: uppercase;
     }
+
     .welcome-content {
       flex-grow: 1;
       display: flex;
@@ -96,21 +97,42 @@
       color: #fff;
     }
     .arabic-line {
-      font-size: 24px;
+      font-size: 26px;
       color: #FF4081;
       margin: 15px 0;
     }
     .arabic-rewards {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 700;
       margin: 20px 0;
       color: #fff;
     }
-    .arabic-divider {
-      font-size: 20px;
-      color: #9E9E9E;
-      margin: 15px 0;
+
+    /* اسم العميل */
+    #customer-name {
+      font-size: 48px;
+      color: #FF4081;
+      font-weight: 900;
+      margin: 20px 0;
     }
+
+    /* نقاط المكافآت */
+    #customer-points {
+      font-size: 40px;
+      color: #FFD700; /* ذهبي */
+      font-weight: 700;
+      margin: 20px 0;
+    }
+
+    /* أنيميشن للتغيير */
+    @keyframes fadeScale {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .highlight {
+      animation: fadeScale 1s ease;
+    }
+
     .footer {
       display: flex;
       flex-direction: column;
@@ -120,15 +142,15 @@
     .social-icons {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 10px;
+      gap: 25px;
+      margin-bottom: 15px;
     }
     .social-icon {
       color: #fff;
-      font-size: 24px;
+      font-size: 30px;
       background-color: rgba(255, 255, 255, 0.1);
-      width: 45px;
-      height: 45px;
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -138,7 +160,7 @@
       background-color: rgba(255, 64, 129, 0.2);
     }
     .brand-url {
-      font-size: 18px;
+      font-size: 20px;
       color: #9E9E9E;
       font-weight: 300;
     }
@@ -158,12 +180,12 @@
       <div class="arabic-line">أهلا وسهلا</div>
       
       <!-- اسم العميل -->
-      <div class="arabic-divider" id="customer-name">****----****----</div>
+      <div id="customer-name">****----****----</div>
       
       <div class="arabic-rewards">رصيد المكافآت الخاص بك</div>
       
       <!-- نقاط العميل -->
-      <div class="arabic-divider" id="customer-points">****</div>
+      <div id="customer-points">****</div>
     </div>
     
     <div class="footer">
@@ -180,9 +202,26 @@
   <!-- مكان الكود الخاص بـ n8n -->
   <script>
     // مثال تجريبي لتحديث البيانات
-    // لما تربط بـ n8n هتستبدل الجزء ده بـ fetch للـ API
-    document.getElementById("customer-name").textContent = "أحمد محمد";
-    document.getElementById("customer-points").textContent = "150";
+    function updateCustomer(name, points) {
+      const nameEl = document.getElementById("customer-name");
+      const pointsEl = document.getElementById("customer-points");
+
+      nameEl.textContent = name;
+      pointsEl.textContent = points;
+
+      // تفعيل الأنيميشن
+      nameEl.classList.remove("highlight");
+      pointsEl.classList.remove("highlight");
+
+      void nameEl.offsetWidth; // trick لإعادة تشغيل الأنيميشن
+      void pointsEl.offsetWidth;
+
+      nameEl.classList.add("highlight");
+      pointsEl.classList.add("highlight");
+    }
+
+    // مثال مؤقت
+    updateCustomer("أحمد محمد", "150");
   </script>
 </body>
 </html>
