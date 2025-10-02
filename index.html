@@ -11,155 +11,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 
   <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: #fff; /* خلفية بيضاء */
-      color: #000; /* النصوص الأساسية أسود */
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    .slide {
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background-color: #fff;
-    }
-    .brand {
-      text-align: center;
-      padding: 40px 0 20px;
-    }
-    .brand-name {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 120px;
-      font-weight: 900;
-      letter-spacing: 15px;
-      line-height: 0.9;
-      text-transform: uppercase;
-      direction: ltr;
-    }
-
-    /* حركة + إضاءة تحت الحروف */
-    @keyframes floatPulse {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-10px) scale(1.05); }
-    }
-    .brand-name span {
-      position: relative;
-      display: inline-block;
-      animation: floatPulse 3s ease-in-out infinite;
-    }
-    .brand-name span::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3), transparent);
-    }
-    .brand-name span:nth-child(1) {
-      color: #FF4081; /* الوردي */
-      animation-delay: 0s;
-    }
-    .brand-name span:nth-child(2),
-    .brand-name span:nth-child(3) {
-      color: #000; /* أسود */
-    }
-
-    .brand-type {
-      font-size: 22px;
-      color: #555; /* رمادي غامق */
-      margin-top: 10px;
-      letter-spacing: 4px;
-      font-weight: 300;
-      text-transform: uppercase;
-    }
-
-    .welcome-content {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 20px 30px;
-      text-align: center;
-    }
-    .arabic-welcome {
-      font-size: 32px;
-      font-weight: 700;
-      margin: 20px 0;
-      color: #000; /* أسود */
-    }
-    .arabic-line {
-      font-size: 26px;
-      color: #FF4081; /* وردي */
-      margin: 15px 0;
-    }
-    .arabic-rewards {
-      font-size: 32px;
-      font-weight: 700;
-      margin: 20px 0;
-      color: #000;
-    }
-
-    /* اسم العميل */
-    #customer-name {
-      font-size: 48px;
-      color: #FF4081; /* وردي */
-      font-weight: 900;
-      margin: 20px 0;
-    }
-
-    /* نقاط المكافآت */
-    #customer-points {
-      font-size: 40px;
-      color: #555; /* ذهبي */
-      font-weight: 700;
-      margin: 20px 0;
-    }
-
-    /* أنيميشن للتغيير */
-    @keyframes fadeScale {
-      0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-    .highlight {
-      animation: fadeScale 1s ease;
-    }
-
-    .footer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px 0;
-    }
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-bottom: 15px;
-    }
-    .social-icon {
-      color: #333; /* رمادي غامق */
-      font-size: 30px;
-      background-color: rgba(0, 0, 0, 0.05);
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .social-icon:hover {
-      color: #FF4081;
-      background-color: rgba(255, 64, 129, 0.15);
-    }
-    .brand-url {
-      font-size: 20px;
-      color: #555;
-      font-weight: 300;
-    }
+    body { font-family: 'Cairo', sans-serif; background-color: #fff; color: #000; margin: 0; padding: 0; overflow: hidden; }
+    .slide { width: 100%; min-height: 100vh; display: flex; flex-direction: column; background-color: #fff; }
+    .brand { text-align: center; padding: 40px 0 20px; }
+    .brand-name { font-family: 'Bebas Neue', cursive; font-size: 120px; font-weight: 900; letter-spacing: 15px; line-height: 0.9; text-transform: uppercase; direction: ltr; }
+    @keyframes floatPulse { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.05); } }
+    .brand-name span { position: relative; display: inline-block; animation: floatPulse 3s ease-in-out infinite; }
+    .brand-name span::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3), transparent); }
+    .brand-name span:nth-child(1) { color: #FF4081; animation-delay: 0s; }
+    .brand-name span:nth-child(2), .brand-name span:nth-child(3) { color: #000; }
+    .brand-type { font-size: 22px; color: #555; margin-top: 10px; letter-spacing: 4px; font-weight: 300; text-transform: uppercase; }
+    .welcome-content { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 20px 30px; text-align: center; }
+    .arabic-welcome { font-size: 32px; font-weight: 700; margin: 20px 0; color: #000; }
+    .arabic-line { font-size: 26px; color: #FF4081; margin: 15px 0; }
+    .arabic-rewards { font-size: 32px; font-weight: 700; margin: 20px 0; color: #000; }
+    #customer-name { font-size: 48px; color: #FF4081; font-weight: 900; margin: 20px 0; }
+    #customer-points { font-size: 40px; color: #555; font-weight: 700; margin: 20px 0; }
+    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
+    .highlight { animation: fadeScale 1s ease; }
+    .footer { display: flex; flex-direction: column; align-items: center; padding: 20px 0; }
+    .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 15px; }
+    .social-icon { color: #333; font-size: 30px; background-color: rgba(0, 0, 0, 0.05); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
+    .social-icon:hover { color: #FF4081; background-color: rgba(255, 64, 129, 0.15); }
+    .brand-url { font-size: 20px; color: #555; font-weight: 300; }
   </style>
 </head>
 <body>
@@ -174,13 +48,8 @@
     <div class="welcome-content">
       <div class="arabic-welcome">مرحبا بك ضيفنا العزيز يسعدنا دائما رؤيتك</div>
       <div class="arabic-line">أهلا وسهلا</div>
-      
-      <!-- اسم العميل -->
       <div id="customer-name">****----****----</div>
-      
       <div class="arabic-rewards">رصيد المكافآت الخاص بك</div>
-      
-      <!-- نقاط العميل -->
       <div id="customer-points">****</div>
     </div>
     
@@ -195,31 +64,34 @@
     </div>
   </div>
 
-  <!-- مكان الكود الخاص بـ n8n -->
+  <!-- كود التحديث التلقائي من السيرفر على البورت 5001 -->
   <script>
-    // مثال تجريبي لتحديث البيانات
     function updateCustomer(name, points) {
       const nameEl = document.getElementById("customer-name");
       const pointsEl = document.getElementById("customer-points");
-
       nameEl.textContent = name;
       pointsEl.textContent = points;
-
-      // تفعيل الأنيميشن
       nameEl.classList.remove("highlight");
       pointsEl.classList.remove("highlight");
-
-      void nameEl.offsetWidth; // trick لإعادة تشغيل الأنيميشن
+      void nameEl.offsetWidth;
       void pointsEl.offsetWidth;
-
       nameEl.classList.add("highlight");
       pointsEl.classList.add("highlight");
     }
 
-    // مثال مؤقت
-    updateCustomer("أحمد محمد", "150");
+    async function fetchCustomerData() {
+      try {
+        const response = await fetch('http://72.60.132.17:5001/data');
+        const data = await response.json();
+        updateCustomer(data.name, data.points);
+      } catch (err) {
+        console.error('خطأ في جلب البيانات:', err);
+      }
+    }
+
+    // جلب البيانات كل 3 ثواني
+    setInterval(fetchCustomerData, 3000);
+    fetchCustomerData(); // جلب أول مرة مباشرة
   </script>
 </body>
 </html>
-
-
