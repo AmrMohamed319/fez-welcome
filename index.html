@@ -3,74 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FEZ COFFEE - Welcome</title>
+  <title>FEZ Cafe - Welcome</title>
 
-  <!-- خطوط + Tailwind + FontAwesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700;900&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <!-- خطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Cairo', sans-serif; background-color: #fff; color: #000; margin: 0; padding: 0; overflow: hidden; }
-    .slide { width: 100%; min-height: 100vh; display: flex; flex-direction: column; background-color: #fff; }
-    .brand { text-align: center; padding: 40px 0 20px; }
-    .brand-name { font-family: 'Bebas Neue', cursive; font-size: 120px; font-weight: 900; letter-spacing: 15px; line-height: 0.9; text-transform: uppercase; direction: ltr; }
-    @keyframes floatPulse { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.05); } }
-    .brand-name span { position: relative; display: inline-block; animation: floatPulse 3s ease-in-out infinite; }
-    .brand-name span::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3), transparent); }
-    .brand-name span:nth-child(1) { color: #FF4081; animation-delay: 0s; }
-    .brand-name span:nth-child(2), .brand-name span:nth-child(3) { color: #000; }
-    .brand-type { font-size: 22px; color: #555; margin-top: 10px; letter-spacing: 4px; font-weight: 300; text-transform: uppercase; }
-    .welcome-content { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px 20px 30px; text-align: center; }
-    .arabic-welcome { font-size: 32px; font-weight: 700; margin: 20px 0; color: #000; }
-    .arabic-line { font-size: 26px; color: #FF4081; margin: 15px 0; }
-    .arabic-rewards { font-size: 32px; font-weight: 700; margin: 20px 0; color: #000; }
-    #customer-name { font-size: 48px; color: #FF4081; font-weight: 900; margin: 20px 0; }
-    #customer-points { font-size: 40px; color: #555; font-weight: 700; margin: 20px 0; }
-    @keyframes fadeScale { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
-    .highlight { animation: fadeScale 1s ease; }
-    .footer { display: flex; flex-direction: column; align-items: center; padding: 20px 0; }
-    .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 15px; }
-    .social-icon { color: #333; font-size: 30px; background-color: rgba(0, 0, 0, 0.05); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
-    .social-icon:hover { color: #FF4081; background-color: rgba(255, 64, 129, 0.15); }
-    .brand-url { font-size: 20px; color: #555; font-weight: 300; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #FFCDD2; /* خلفية وردية ناعمة */
+      color: #333;
+      font-family: 'Cairo', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 20px;
+      overflow: hidden;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .fez-logo {
+      font-family: 'Bubblegum Sans', cursive;
+      font-size: 120px;
+      font-weight: 900;
+      letter-spacing: -6px;
+      line-height: 0.9;
+    }
+
+    @keyframes floatPulse {
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.05); }
+    }
+
+    .fez-logo span {
+      display: inline-block;
+      animation: floatPulse 3s ease-in-out infinite;
+    }
+
+    .fez-logo .f { color: #FF4081; animation-delay: 0s; }
+    .fez-logo .e, .fez-logo .z { color: #fff; animation-delay: 0.3s; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+
+    .specialty-coffee {
+      color: #555;
+      font-size: 28px;
+      letter-spacing: 3px;
+      margin-top: -5px;
+      font-weight: 700;
+    }
+
+    .welcome-container {
+      text-align: center;
+      width: 95%;
+      max-width: 900px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 60px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .welcome-line {
+      font-size: 46px;
+      margin: 20px 0;
+      font-weight: 700;
+      color: #FF4081;
+    }
+
+    .arabic-message {
+      font-size: 42px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .arabic-divider {
+      font-size: 36px;
+      color: #FF4081;
+      margin: 20px 0;
+      letter-spacing: 3px;
+    }
+
+    .arabic-rewards {
+      font-size: 42px;
+      font-weight: 600;
+      color: #333;
+      margin: 25px 0;
+    }
+
+    .thank-you {
+      font-size: 34px;
+      margin: 25px 0 10px;
+      color: #000;
+    }
+
+    .note {
+      font-size: 24px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    #customer-name {
+      color: #FF4081;
+      font-size: 50px;
+      font-weight: 900;
+      margin: 15px 0;
+    }
+
+    #customer-points {
+      color: #333;
+      font-size: 48px;
+      font-weight: 800;
+      margin: 10px 0;
+    }
+
+    @keyframes fadeScale {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .highlight {
+      animation: fadeScale 1s ease;
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .brand-url {
+      font-size: 22px;
+      color: #555;
+      font-weight: 600;
+      letter-spacing: 10px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-  <div class="slide">
-    <div class="brand">
-      <div class="brand-name">
-        <span>F</span><span>E</span><span>Z</span>
-      </div>
-      <div class="brand-type">SPECIALTY COFFEE</div>
+  <div class="logo-container">
+    <div class="fez-logo">
+      <span class="f">F</span><span class="e">E</span><span class="z">Z</span>
     </div>
-    
-    <div class="welcome-content">
-      <div class="arabic-welcome">مرحبا بك ضيفنا العزيز يسعدنا دائما رؤيتك</div>
-      <div class="arabic-line">أهلا وسهلا</div>
-      <div id="customer-name">****----****----</div>
-      <div class="arabic-rewards">رصيد المكافآت الخاص بك</div>
-      <div id="customer-points">****</div>
-    </div>
-    
-    <div class="footer">
-      <div class="social-icons">
-        <div class="social-icon"><i class="fab fa-tiktok"></i></div>
-        <div class="social-icon"><i class="fab fa-instagram"></i></div>
-        <div class="social-icon"><i class="fab fa-snapchat"></i></div>
-        <div class="social-icon"><i class="fas fa-globe"></i></div>
-      </div>
-      <div class="brand-url">fezcaf</div>
-    </div>
+    <div class="specialty-coffee">SPECIALTY COFFEE</div>
   </div>
 
-  <!-- كود التحديث التلقائي من السيرفر على البورت 5001 -->
+  <div class="welcome-container">
+    <div class="welcome-line">يا مرحبا ويا مسهلا 🌟</div>
+    <div class="arabic-message">حيا الله</div>
+    <div class="arabic-divider">******-------*******</div>
+    <div class="arabic-rewards">رصيد مكافآتك هو</div>
+    <div id="customer-points">*** ريال 💰</div>
+    <div class="thank-you">شكراً لزيارتك في كوفي فيز ☕️</div>
+    <div class="note">(يتم احتساب المكافآت بنسبة 5% من إجمالي الفاتورة)</div>
+  </div>
+
+  <div class="footer">
+    <div id="customer-name">****----****----</div>
+    <div class="brand-url">FEZCAF</div>
+  </div>
+
+  <!-- التحديث التلقائي من Flask -->
   <script>
     function updateCustomer(name, points) {
       const nameEl = document.getElementById("customer-name");
       const pointsEl = document.getElementById("customer-points");
-      nameEl.textContent = name;
-      pointsEl.textContent = points;
+      nameEl.textContent = name || "****----****----";
+      pointsEl.textContent = (points ? points + " ريال 💰" : "*** ريال 💰");
       nameEl.classList.remove("highlight");
       pointsEl.classList.remove("highlight");
       void nameEl.offsetWidth;
@@ -89,9 +195,8 @@
       }
     }
 
-    // جلب البيانات كل 3 ثواني
     setInterval(fetchCustomerData, 3000);
-    fetchCustomerData(); // جلب أول مرة مباشرة
+    fetchCustomerData();
   </script>
 </body>
 </html>
