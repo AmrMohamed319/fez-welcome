@@ -28,15 +28,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 18px;
+      padding: 18px 18px 8px;
       overflow: hidden;
+      box-sizing: border-box;
     }
 
     /* ---------- Header ---------- */
-    .logo-container {
-      text-align: center;
-      flex: 0 0 auto;
-    }
+    .logo-container { text-align: center; flex: 0 0 auto; }
 
     .fez-logo {
       font-family: 'Bubblegum Sans', cursive;
@@ -49,15 +47,11 @@
     }
 
     @keyframes floatPulse {
-      0%, 100% { transform: translateY(0) scale(1); }
+      0%,100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-10px) scale(1.05); }
     }
 
-    .fez-logo span {
-      display: inline-block;
-      animation: floatPulse 3s ease-in-out infinite;
-    }
-
+    .fez-logo span { display: inline-block; animation: floatPulse 3s ease-in-out infinite; }
     .fez-logo .f { color: var(--pink); }
     .fez-logo .e, .fez-logo .z { color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.18); }
 
@@ -79,12 +73,12 @@
       justify-content: center;
       align-items: center;
       background: rgba(255, 255, 255, 0.95);
-      padding: clamp(18px, 3vw, 36px);
+      padding: clamp(18px, 3vw, 36px) clamp(18px, 4vw, 50px);
       border-radius: 18px;
       box-shadow: 0 8px 28px rgba(31,38,135,0.12);
       border: 1px solid rgba(255,255,255,0.22);
       gap: 8px;
-      max-height: 85vh;
+      max-height: 82vh;
       box-sizing: border-box;
     }
 
@@ -120,6 +114,8 @@
       font-size: clamp(28px, 4vw, 44px);
       font-weight: 800;
       margin: 8px 0;
+      opacity: 1;
+      transition: opacity .6s ease;
     }
 
     .thank-you {
@@ -133,14 +129,14 @@
       font-size: clamp(14px, 2vw, 18px);
       color: var(--muted);
       text-align: center;
-      margin-top: 10px;
+      margin-top: 4px;
     }
 
     /* ---------- Footer ---------- */
     .footer {
       flex: 0 0 auto;
       text-align: center;
-      margin-top: 8px;
+      margin-top: 6px;
       padding-bottom: 4px;
     }
 
@@ -151,22 +147,26 @@
       font-size: clamp(16px, 2.2vw, 28px);
       text-align: center;
       letter-spacing: 1px;
+      opacity: 1;
+      transition: opacity .6s ease;
     }
 
     .brand-url {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
       letter-spacing: 6px;
       font-weight: 600;
       margin-top: 6px;
     }
 
-    @keyframes fadeScale {
-      0% { opacity: 0; transform: scale(.92); }
+    /* ---------- Animations ---------- */
+    @keyframes fadeBlink {
+      0% { opacity: 0; transform: scale(0.95); }
+      50% { opacity: 1; transform: scale(1.02); }
       100% { opacity: 1; transform: scale(1); }
     }
 
-    .highlight { animation: fadeScale 700ms ease; }
+    .fadeBlink { animation: fadeBlink 1.2s ease; }
   </style>
 </head>
 
@@ -212,12 +212,13 @@
         pointsEl.textContent = "*** ريال 💰";
       }
 
-      nameEl.classList.remove("highlight");
-      pointsEl.classList.remove("highlight");
+      // Animation effect
+      nameEl.classList.remove("fadeBlink");
+      pointsEl.classList.remove("fadeBlink");
       void nameEl.offsetWidth;
       void pointsEl.offsetWidth;
-      nameEl.classList.add("highlight");
-      pointsEl.classList.add("highlight");
+      nameEl.classList.add("fadeBlink");
+      pointsEl.classList.add("fadeBlink");
     }
 
     async function fetchCustomerData() {
