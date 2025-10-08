@@ -41,7 +41,7 @@
     .fez-logo {
       font-family: 'Bubblegum Sans', cursive;
       font-size: clamp(56px, 8vw, 110px);
-      letter-spacing: clamp(8px, 2.4vw, 18px);
+      letter-spacing: clamp(10px, 2.5vw, 20px);
       line-height: 1;
       direction: ltr;
       unicode-bidi: isolate;
@@ -75,7 +75,7 @@
       justify-content: center;
       align-items: center;
       background: rgba(255, 255, 255, 0.95);
-      padding: 10px 20px;
+      padding: 8px 20px;
       border-radius: 18px;
       box-shadow: 0 8px 28px rgba(31,38,135,0.12);
       border: 1px solid rgba(255,255,255,0.22);
@@ -103,6 +103,15 @@
       margin: 6px 0;
       letter-spacing: 3px;
       text-align: center;
+    }
+
+    #customer-name {
+      color: var(--pink);
+      font-weight: 900;
+      font-size: clamp(20px, 3vw, 36px);
+      text-align: center;
+      letter-spacing: 1px;
+      transition: opacity .6s ease;
     }
 
     .arabic-rewards {
@@ -133,27 +142,14 @@
       font-size: clamp(14px, 2vw, 18px);
       color: var(--muted);
       text-align: center;
-      margin-top: 0;
-      margin-bottom: 0;
+      margin: 0;
     }
 
     /* ---------- Footer ---------- */
     .footer {
       flex: 0 0 auto;
       text-align: center;
-      margin-top: 0;
       padding: 4px 0 8px;
-    }
-
-    #customer-name {
-      display: none;
-      color: var(--pink);
-      font-weight: 900;
-      font-size: clamp(16px, 2.2vw, 28px);
-      text-align: center;
-      letter-spacing: 1px;
-      opacity: 1;
-      transition: opacity .6s ease;
     }
 
     .brand-url {
@@ -186,6 +182,8 @@
     <div class="arabic-message">حيا الله</div>
     <div class="arabic-divider">******-------*******</div>
 
+    <div id="customer-name">******-------*******</div>
+
     <div class="arabic-rewards">رصيد مكافآتك هو</div>
     <div id="customer-points">*** ريال 💰</div>
 
@@ -194,7 +192,6 @@
   </main>
 
   <footer class="footer">
-    <div id="customer-name">******-------*******</div>
     <div class="brand-url">FEZ CAFE</div>
   </footer>
 
@@ -205,10 +202,8 @@
 
       if (name && name.trim() !== "" && name !== "******-------*******") {
         nameEl.textContent = name;
-        nameEl.style.display = "block";
       } else {
         nameEl.textContent = "******-------*******";
-        nameEl.style.display = "block";
       }
 
       if (points && points.trim() !== "") {
