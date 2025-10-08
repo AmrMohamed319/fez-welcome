@@ -12,29 +12,30 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background-color: #FFCDD2; /* خلفية وردية ناعمة */
+      background-color: #FFCDD2; /* وردي ناعم */
       color: #333;
       font-family: 'Cairo', sans-serif;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      padding: 40px 20px;
-      overflow: hidden;
+      padding: 20px;
     }
 
+    /* ------------------- الشعار ------------------- */
     .logo-container {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
     }
 
     .fez-logo {
       font-family: 'Bubblegum Sans', cursive;
-      font-size: 120px;
+      font-size: 90px;
       font-weight: 900;
-      letter-spacing: -6px;
-      line-height: 0.9;
+      letter-spacing: 15px; /* زيادة التباعد بين الحروف */
+      line-height: 1;
+      user-select: none;
     }
 
     @keyframes floatPulse {
@@ -52,72 +53,75 @@
 
     .specialty-coffee {
       color: #555;
-      font-size: 28px;
-      letter-spacing: 3px;
-      margin-top: -5px;
+      font-size: 20px;
+      letter-spacing: 6px; /* تباعد أكبر بين الحروف */
+      text-transform: uppercase;
+      margin-top: 5px;
       font-weight: 700;
     }
 
+    /* ------------------- الإطار الأبيض ------------------- */
     .welcome-container {
       text-align: center;
-      width: 95%;
-      max-width: 900px;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 60px;
+      width: 90%;
+      max-width: 700px;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px 20px;
       border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 6px 25px rgba(31, 38, 135, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      flex-shrink: 0;
     }
 
     .welcome-line {
-      font-size: 46px;
-      margin: 20px 0;
+      font-size: 36px;
+      margin: 10px 0;
       font-weight: 700;
       color: #FF4081;
     }
 
     .arabic-message {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 34px;
+      margin-bottom: 5px;
       color: #333;
     }
 
     .arabic-divider {
-      font-size: 36px;
+      font-size: 30px;
       color: #FF4081;
       margin: 20px 0;
       letter-spacing: 3px;
     }
 
     .arabic-rewards {
-      font-size: 42px;
+      font-size: 34px;
       font-weight: 600;
       color: #333;
-      margin: 25px 0;
+      margin: 20px 0 10px;
     }
 
     .thank-you {
-      font-size: 34px;
-      margin: 25px 0 10px;
+      font-size: 28px;
+      margin: 20px 0 5px;
       color: #000;
     }
 
     .note {
-      font-size: 24px;
+      font-size: 18px;
       color: #555;
       font-weight: 500;
     }
 
     #customer-name {
       color: #FF4081;
-      font-size: 50px;
+      font-size: 38px;
       font-weight: 900;
       margin: 15px 0;
     }
 
     #customer-points {
       color: #333;
-      font-size: 48px;
+      font-size: 36px;
       font-weight: 800;
       margin: 10px 0;
     }
@@ -131,19 +135,30 @@
       animation: fadeScale 1s ease;
     }
 
+    /* ------------------- الفوتر ------------------- */
     .footer {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 10px 0;
+      margin-top: 20px;
     }
 
     .brand-url {
-      font-size: 22px;
+      font-size: 16px;
       color: #555;
       font-weight: 600;
-      letter-spacing: 10px;
+      letter-spacing: 6px;
       margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .fez-logo { font-size: 70px; letter-spacing: 10px; }
+      .specialty-coffee { font-size: 16px; letter-spacing: 4px; }
+      .welcome-container { padding: 25px; }
+      .welcome-line, .arabic-rewards, .arabic-message { font-size: 28px; }
+      #customer-name, #customer-points { font-size: 30px; }
+      .thank-you { font-size: 22px; }
     }
   </style>
 </head>
@@ -167,10 +182,9 @@
 
   <div class="footer">
     <div id="customer-name">****----****----</div>
-    <div class="brand-url">FEZCAF</div>
+    <div class="brand-url">FEZ CAFE</div>
   </div>
 
-  <!-- التحديث التلقائي من Flask -->
   <script>
     function updateCustomer(name, points) {
       const nameEl = document.getElementById("customer-name");
