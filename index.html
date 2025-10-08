@@ -28,13 +28,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 18px 8px;
       overflow: hidden;
-      box-sizing: border-box;
     }
 
     /* ---------- Header ---------- */
-    .logo-container { text-align: center; flex: 0 0 auto; }
+    .logo-container { 
+      text-align: center; 
+      flex: 0 0 auto; 
+      margin-top: 10px;
+    }
 
     .fez-logo {
       font-family: 'Bubblegum Sans', cursive;
@@ -67,18 +69,17 @@
     /* ---------- Main Panel ---------- */
     .welcome-container {
       width: min(94%, 900px);
-      flex: 1 1 auto;
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       background: rgba(255, 255, 255, 0.95);
-      padding: clamp(18px, 3vw, 36px) clamp(18px, 4vw, 50px);
+      padding: 10px 20px;
       border-radius: 18px;
       box-shadow: 0 8px 28px rgba(31,38,135,0.12);
       border: 1px solid rgba(255,255,255,0.22);
-      gap: 8px;
-      max-height: 82vh;
+      gap: 6px;
       box-sizing: border-box;
     }
 
@@ -87,6 +88,7 @@
       color: var(--pink);
       font-weight: 800;
       text-align: center;
+      margin-top: 4px;
     }
 
     .arabic-message {
@@ -98,7 +100,7 @@
     .arabic-divider {
       font-size: clamp(20px, 3vw, 28px);
       color: var(--pink);
-      margin: 10px 0;
+      margin: 6px 0;
       letter-spacing: 3px;
       text-align: center;
     }
@@ -107,13 +109,14 @@
       font-size: clamp(24px, 3.5vw, 32px);
       color: var(--text);
       font-weight: 700;
+      margin-top: 2px;
     }
 
     #customer-points {
       color: var(--text);
       font-size: clamp(28px, 4vw, 44px);
       font-weight: 800;
-      margin: 8px 0;
+      margin: 6px 0;
       opacity: 1;
       transition: opacity .6s ease;
     }
@@ -123,21 +126,23 @@
       text-align: center;
       font-weight: 600;
       color: #000;
+      margin-bottom: 4px;
     }
 
     .note {
       font-size: clamp(14px, 2vw, 18px);
       color: var(--muted);
       text-align: center;
-      margin-top: 4px;
+      margin-top: 0;
+      margin-bottom: 0;
     }
 
     /* ---------- Footer ---------- */
     .footer {
       flex: 0 0 auto;
       text-align: center;
-      margin-top: 6px;
-      padding-bottom: 4px;
+      margin-top: 0;
+      padding: 4px 0 8px;
     }
 
     #customer-name {
@@ -156,7 +161,7 @@
       color: var(--muted);
       letter-spacing: 6px;
       font-weight: 600;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     /* ---------- Animations ---------- */
@@ -212,7 +217,6 @@
         pointsEl.textContent = "*** ريال 💰";
       }
 
-      // Animation effect
       nameEl.classList.remove("fadeBlink");
       pointsEl.classList.remove("fadeBlink");
       void nameEl.offsetWidth;
