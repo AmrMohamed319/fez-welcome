@@ -4,114 +4,179 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FEZ Cafe - Welcome</title>
-
-  <!-- خطوط -->
   <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --pink:#FF4081;
-      --bg:#FFCDD2;
-      --text:#222;
-      --muted:#555;
+    :root {
+      --pink: #FF4081;
+      --bg: #FFCDD2;
+      --text: #222;
+      --muted: #555;
     }
 
-    html,body{height:100%;margin:0;padding:0;}
-    body{
-      height:100vh;
-      background:var(--bg);
-      font-family:'Cairo',sans-serif;
-      color:var(--text);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:18px;
-      overflow:hidden; /* نحاول نمنع scroll */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
-    /* ---------- Header / Logo ---------- */
-    .logo-container{
-      text-align:center;
-      margin: 6px 0;
+    body {
+      background: var(--bg);
+      font-family: 'Cairo', sans-serif;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    /* ---------- Header ---------- */
+    .logo-container {
+      text-align: center;
       flex: 0 0 auto;
     }
 
-    .fez-logo{
-      font-family:'Bubblegum Sans',cursive;
-      /* حجم ديناميكي ليتناسب مع شاشة العرض */
+    .fez-logo {
+      font-family: 'Bubblegum Sans', cursive;
       font-size: clamp(56px, 8vw, 110px);
       letter-spacing: clamp(8px, 2.4vw, 18px);
-      line-height:1;
-      /* مهم علشان الحروف لاتينية ما تنعكسش داخل صفحة RTL */
-      direction:ltr;
-      unicode-bidi:isolate;
-      user-select:none;
+      line-height: 1;
+      direction: ltr;
+      unicode-bidi: isolate;
+      user-select: none;
     }
 
-    @keyframes floatPulse {0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
-    .fez-logo span{display:inline-block; animation:floatPulse 3s ease-in-out infinite;}
-    .fez-logo .f{color:var(--pink);}
-    .fez-logo .e,.fez-logo .z{color:#fff; text-shadow:2px 2px 4px rgba(0,0,0,0.18);}
-
-    .specialty-coffee{
-      margin-top:6px;
-      font-size:clamp(12px,1.2vw,20px);
-      letter-spacing:6px;
-      text-transform:uppercase;
-      color:var(--muted);
-      font-weight:700;
+    @keyframes floatPulse {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.05); }
     }
 
-    /* ---------- White panel (center) ---------- */
-    .welcome-container{
-      width:min(94%,900px);
-      flex:1 1 auto; /* يشغل المساحة المتبقية */
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      background:rgba(255,255,255,0.95);
-      padding: clamp(18px,3.5vw,48px);
-      border-radius:18px;
-      box-shadow:0 8px 28px rgba(31,38,135,0.12);
-      border:1px solid rgba(255,255,255,0.22);
-      gap:8px;
-      box-sizing:border-box;
-      overflow:hidden;
+    .fez-logo span {
+      display: inline-block;
+      animation: floatPulse 3s ease-in-out infinite;
     }
 
-    .welcome-line{ font-size: clamp(28px,4.5vw,40px); color:var(--pink); font-weight:800; margin-bottom:6px; text-align:center;}
-    .arabic-message{ font-size: clamp(24px,3.8vw,34px); color:var(--text); text-align:center; margin-bottom:4px; }
-    .arabic-divider{ font-size: clamp(20px,2.8vw,28px); color:var(--pink); margin:14px 0; letter-spacing:4px; text-align:center; }
-    .arabic-rewards{ font-size: clamp(24px,3.8vw,34px); color:var(--text); font-weight:700; margin-top:6px; }
-    .note{ font-size: clamp(14px,1.6vw,18px); color:var(--muted); margin-top:10px; text-align:center; max-width:85%; }
+    .fez-logo .f { color: var(--pink); }
+    .fez-logo .e, .fez-logo .z { color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.18); }
 
-    #customer-points{ color:var(--text); font-size: clamp(28px,4.5vw,48px); font-weight:800; margin:8px 0; }
-    .thank-you{ font-size: clamp(18px,2.6vw,28px); margin-top:10px; text-align:center; font-weight:600; color:#000; }
-
-    /* ---------- Footer: name small line ---------- */
-    .footer{ flex:0 0 auto; margin-top:12px; display:flex; flex-direction:column; align-items:center; gap:6px; }
-    #customer-name{ display:none; color:var(--pink); font-weight:900; font-size:clamp(16px,2.4vw,36px); letter-spacing:1px; text-align:center; }
-    .brand-url{ font-size:14px; color:var(--muted); letter-spacing:6px; font-weight:600; }
-
-    /* highlight animation */
-    @keyframes fadeScale {0%{opacity:0; transform:scale(.92)}100%{opacity:1; transform:scale(1)}}
-    .highlight{ animation: fadeScale 700ms ease; }
-
-    /* Responsive tweaks for very small screens */
-    @media (max-height:620px){
-      .fez-logo{ font-size: clamp(40px,9vw,80px); }
-      .welcome-container{ padding:18px; }
+    .specialty-coffee {
+      margin-top: 6px;
+      font-size: clamp(12px, 1.2vw, 20px);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
     }
+
+    /* ---------- Main Panel ---------- */
+    .welcome-container {
+      width: min(94%, 900px);
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.95);
+      padding: clamp(18px, 3vw, 36px);
+      border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(31,38,135,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      gap: 8px;
+      max-height: 85vh;
+      box-sizing: border-box;
+    }
+
+    .welcome-line {
+      font-size: clamp(28px, 4vw, 38px);
+      color: var(--pink);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .arabic-message {
+      font-size: clamp(24px, 3.5vw, 32px);
+      color: var(--text);
+      text-align: center;
+    }
+
+    .arabic-divider {
+      font-size: clamp(20px, 3vw, 28px);
+      color: var(--pink);
+      margin: 10px 0;
+      letter-spacing: 3px;
+      text-align: center;
+    }
+
+    .arabic-rewards {
+      font-size: clamp(24px, 3.5vw, 32px);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    #customer-points {
+      color: var(--text);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      margin: 8px 0;
+    }
+
+    .thank-you {
+      font-size: clamp(18px, 2.8vw, 26px);
+      text-align: center;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .note {
+      font-size: clamp(14px, 2vw, 18px);
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      flex: 0 0 auto;
+      text-align: center;
+      margin-top: 8px;
+      padding-bottom: 4px;
+    }
+
+    #customer-name {
+      display: none;
+      color: var(--pink);
+      font-weight: 900;
+      font-size: clamp(16px, 2.2vw, 28px);
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .brand-url {
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 6px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    @keyframes fadeScale {
+      0% { opacity: 0; transform: scale(.92); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .highlight { animation: fadeScale 700ms ease; }
   </style>
 </head>
+
 <body>
   <div class="logo-container">
     <div class="fez-logo"><span class="f">F</span><span class="e">E</span><span class="z">Z</span></div>
     <div class="specialty-coffee">SPECIALTY COFFEE</div>
   </div>
 
-  <main class="welcome-container" role="main">
+  <main class="welcome-container">
     <div class="welcome-line">يا مرحبا ويا مسهلا 🌟</div>
     <div class="arabic-message">حيا الله</div>
     <div class="arabic-divider">******-------*******</div>
@@ -123,57 +188,49 @@
     <div class="note">(يتم احتساب المكافآت بنسبة 5% من إجمالي الفاتورة)</div>
   </main>
 
-  <footer class="footer" aria-label="footer">
-    <div id="customer-name" aria-hidden="true"></div>
+  <footer class="footer">
+    <div id="customer-name">******-------*******</div>
     <div class="brand-url">FEZ CAFE</div>
   </footer>
 
   <script>
-    /* helper: show/hide name element only when actual name provided */
-    function setNameVisibility(name){
-      const el = document.getElementById('customer-name');
-      if(name && String(name).trim() !== '' && String(name).trim() !== '****----****----'){
-        el.textContent = name;
-        el.style.display = 'block';
+    function updateCustomer(name, points) {
+      const nameEl = document.getElementById("customer-name");
+      const pointsEl = document.getElementById("customer-points");
+
+      if (name && name.trim() !== "" && name !== "******-------*******") {
+        nameEl.textContent = name;
+        nameEl.style.display = "block";
       } else {
-        el.textContent = '';
-        el.style.display = 'none';
+        nameEl.textContent = "******-------*******";
+        nameEl.style.display = "block";
       }
-    }
 
-    function updateCustomer(name, points){
-      const nameEl = document.getElementById('customer-name');
-      const pointsEl = document.getElementById('customer-points');
-
-      setNameVisibility(name);
-
-      if(points !== undefined && points !== null && points !== '' ){
+      if (points && points.trim() !== "") {
         pointsEl.textContent = points + " ريال 💰";
       } else {
         pointsEl.textContent = "*** ريال 💰";
       }
 
-      // animation
-      pointsEl.classList.remove('highlight');
-      nameEl.classList.remove('highlight');
-      void pointsEl.offsetWidth;
+      nameEl.classList.remove("highlight");
+      pointsEl.classList.remove("highlight");
       void nameEl.offsetWidth;
-      pointsEl.classList.add('highlight');
-      nameEl.classList.add('highlight');
+      void pointsEl.offsetWidth;
+      nameEl.classList.add("highlight");
+      pointsEl.classList.add("highlight");
     }
 
-    async function fetchCustomerData(){
-      try{
-        const res = await fetch('http://72.60.132.17:5001/data', {cache:'no-store'});
-        if(!res.ok) throw new Error('network');
+    async function fetchCustomerData() {
+      try {
+        const res = await fetch('http://72.60.132.17:5001/data', { cache: 'no-store' });
+        if (!res.ok) throw new Error('network');
         const data = await res.json();
         updateCustomer(data.name, data.points);
-      }catch(err){
+      } catch (err) {
         console.warn('خطأ في جلب البيانات:', err);
       }
     }
 
-    // fetch first then interval
     fetchCustomerData();
     setInterval(fetchCustomerData, 3000);
   </script>
