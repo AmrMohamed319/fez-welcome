@@ -4,12 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FEZ Cafe - Welcome</title>
-  <link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Cairo:wght@400;700&family=Titan+One&display=swap" rel="stylesheet">
 
   <style>
+    @font-face {
+      font-family: 'Mochi Boom DEMO';
+      src: url('https://example.com/fonts/MochiBoomDemo.woff2') format('woff2'),
+           url('https://example.com/fonts/MochiBoomDemo.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --pink: #FF4081;
-      --bg: #FFCDD2;
+      --bg: #35D3D4;
       --text: #222;
       --muted: #555;
     }
@@ -74,7 +83,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: rgba(255, 255, 255, 0.95);
+      background: #35D3D4;
       padding: 8px 20px;
       border-radius: 18px;
       box-shadow: 0 8px 28px rgba(31,38,135,0.12);
@@ -85,7 +94,7 @@
 
     .welcome-line {
       font-size: clamp(28px, 4vw, 38px);
-      color: var(--pink);
+      color: #000;
       font-weight: 800;
       text-align: center;
       margin-top: 4px;
@@ -93,20 +102,20 @@
 
     .arabic-message {
       font-size: clamp(24px, 3.5vw, 32px);
-      color: var(--text);
+      color: #000;
       text-align: center;
     }
 
     .arabic-divider {
       font-size: clamp(20px, 3vw, 28px);
-      color: var(--pink);
+      color: #000;
       margin: 6px 0;
       letter-spacing: 3px;
       text-align: center;
     }
 
     #customer-name {
-      color: var(--pink);
+      color: #000;
       font-weight: 900;
       font-size: clamp(20px, 3vw, 36px);
       text-align: center;
@@ -116,13 +125,13 @@
 
     .arabic-rewards {
       font-size: clamp(24px, 3.5vw, 32px);
-      color: var(--text);
+      color: #000;
       font-weight: 700;
       margin-top: 2px;
     }
 
     #customer-points {
-      color: var(--text);
+      color: #000;
       font-size: clamp(28px, 4vw, 44px);
       font-weight: 800;
       margin: 6px 0;
@@ -140,7 +149,7 @@
 
     .note {
       font-size: clamp(14px, 2vw, 18px);
-      color: var(--muted);
+      color: #000;
       text-align: center;
       margin: 0;
     }
@@ -180,8 +189,6 @@
   <main class="welcome-container">
     <div class="welcome-line">يا مرحبا ويا مسهلا 🌟</div>
     <div class="arabic-message">حيا الله</div>
-    <div class="arabic-divider">******-------*******</div>
-
     <div id="customer-name">******-------*******</div>
 
     <div class="arabic-rewards">رصيد مكافآتك هو</div>
@@ -236,5 +243,3 @@
   </script>
 </body>
 </html>
-
-
